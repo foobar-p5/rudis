@@ -5,7 +5,7 @@ i've personally been using it for a day since it was at a point where it could a
 
 ## usage:
 ```sh
-rudis [command]
+rds [command]
 ```
 ### available commands:
 ```sh
@@ -27,3 +27,4 @@ USR2  <-- next track
 RTMIN <-- toggle play/pause
 INT   <-- quit the daemon
 ```
+example: `pkill -USR2 rds`
