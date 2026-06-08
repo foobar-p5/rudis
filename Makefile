@@ -5,28 +5,28 @@ LDFLAGS = -lpthread -lm -ldl -ltag_c -ltag -lz
 
 OBJ = rudis.o miniaudio.o
 
-rudis: $(OBJ) config.h miniaudio.h
-	$(CC) $(CFLAGS) -o rudis $(OBJ) $(LDFLAGS)
+rds: $(OBJ) config.h miniaudio.h
+	$(CC) $(CFLAGS) -o rds $(OBJ) $(LDFLAGS)
 
-src/miniaudio.o: miniaudio.c miniaudio.h
+miniaudio.o: miniaudio.c miniaudio.h
 	$(CC) $(CFLAGS) -c miniaudio.c -o miniaudio.o
 
-src/rudis.o: rudis.c config.h miniaudio.h
+rudis.o: rudis.c config.h miniaudio.h
 	$(CC) $(CFLAGS) -c rudis.c -o rudis.o
 
-install: rudis
-	install -Dm755 rudis $(DESTDIR)$(PREFIX)/bin/rudis
-	install -Dm644 rudis.1 $(DESTDIR)$(PREFIX)/share/man/man1/rudis.1
-	install -Dm644 completion.bash $(DESTDIR)$(PREFIX)/share/bash-completion/completions/rudis
-	install -Dm644 completion.fish $(DESTDIR)$(PREFIX)/share/fish/vendor_completions.d/rudis.fish
+install: rds
+	install -Dm755 rds $(DESTDIR)$(PREFIX)/bin/rds
+	install -Dm644 rudis.1 $(DESTDIR)$(PREFIX)/share/man/man1/rds.1
+	install -Dm644 completion.bash $(DESTDIR)$(PREFIX)/share/bash-completion/completions/rds
+	install -Dm644 completion.fish $(DESTDIR)$(PREFIX)/share/fish/vendor_completions.d/rds.fish
 
 uninstall:
-	rm -f $(DESTDIR)$(PREFIX)/bin/rudis
-	rm -f $(DESTDIR)$(PREFIX)/share/man/man1/rudis.1
-	rm -f $(DESTDIR)$(PREFIX)/share/bash-completion/completions/rudis
-	rm -f $(DESTDIR)$(PREFIX)/share/fish/vendor_completions.d/rudis.fish
+	rm -f $(DESTDIR)$(PREFIX)/bin/rds
+	rm -f $(DESTDIR)$(PREFIX)/share/man/man1/rds.1
+	rm -f $(DESTDIR)$(PREFIX)/share/bash-completion/completions/rds
+	rm -f $(DESTDIR)$(PREFIX)/share/fish/vendor_completions.d/rds.fish
 
 clean:
-	rm -f rudis *.o
+	rm -f rds *.o
 
 .PHONY: install uninstall clean
