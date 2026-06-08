@@ -1,0 +1,62 @@
+.TH RUDIS 1 rudis\-1.0
+.SH NAME
+rudis \- minimal music player
+.SH SYNOPSIS
+.B rudis
+.RI [ command ]
+.SH DESCRIPTION
+.B rudis
+is a suckless music player controlled via CLI commands or signals. run without arguments to start the daemon.
+.SH COMMANDS
+.TP
+.B list
+list all playlists
+.TP
+.BI cue " index"
+cue playlist by
+.I index
+.TP
+.B toggle
+toggle play/pause
+.TP
+.B pause
+pause current track
+.TP
+.B play
+resume paused track
+.TP
+.B next
+skip to next track
+.TP
+.B previous
+return to previous track
+.TP
+.B status
+show current playback status
+.SH SIGNALS
+.TP
+.B USR1
+previous track
+.TP
+.B USR2
+next track
+.TP
+.B 34
+toggle play/pause
+.TP
+.B INT
+quit the daemon
+.SH FILES
+.TP
+.I /tmp/rudis.sock
+socket file used to send commands to the daemon
+.TP
+.I /tmp/rudis_scanned
+cached list of scanned audio files
+.SH AUTHORS
+See the LICENSE file for authors.
+.SH LICENSE
+See the LICENSE file for the terms of redistribution.
+.SH SEE ALSO
+.BR pkill (1),
+.BR notify-send (1)
